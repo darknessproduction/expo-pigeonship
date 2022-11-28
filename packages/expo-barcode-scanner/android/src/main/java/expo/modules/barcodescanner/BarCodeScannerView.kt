@@ -143,15 +143,21 @@ class BarCodeScannerView(
     val ratio = viewFinder.ratio
 
     // Just fill the given space
-    if (ratio * height < width) {
-      viewfinderWidth = (ratio * height).toInt()
-      viewfinderHeight = height.toInt()
-    } else {
-      viewfinderHeight = (width / ratio).toInt()
-      viewfinderWidth = width.toInt()
-    }
+    //if (ratio * height < width) {
+    //  viewfinderWidth = (ratio * height).toInt()
+    //  viewfinderHeight = height.toInt()
+    //} else {
+    //  viewfinderHeight = (width / ratio).toInt()
+    //  viewfinderWidth = width.toInt()
+    //}
+    
+    // updated
+    viewfinderWidth = width.toInt()
+    viewfinderHeight = height.toInt()
+
     val viewFinderPaddingX = ((width - viewfinderWidth) / 2).toInt()
     val viewFinderPaddingY = ((height - viewfinderHeight) / 2).toInt()
+
     leftPadding = viewFinderPaddingX
     topPadding = viewFinderPaddingY
     viewFinder.layout(viewFinderPaddingX, viewFinderPaddingY, viewFinderPaddingX + viewfinderWidth, viewFinderPaddingY + viewfinderHeight)
